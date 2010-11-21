@@ -1,0 +1,71 @@
+Monopolis
+=========
+
+Monopolis é um jogo no estilo monopoly com locais geolocalizados. O objetivo é juntar a maior quantidade de dinheiro obtendo lucro comprando locais usando um pouco de estratégia. 
+O jogador ganha um quantia ao entrar no jogo. Esse dinheiro pode ser usado para comprar novas propriedades ou locais de outros proprietários (jogadoes). Sendo que a cada compra, o preço da propriedade aumenta. Existe um bônus em dinheiro para cada dia que o usuário entra no jogo (somente um por dia). E o usuário também ganha dinheiro baseado no lucro de seus estabelecimentos (quanto mais interções um local tem, maior o lucro).
+Existe a possibilidade de um conteúdo novo de um estabelecimento dar mais lucro do que uma já existente. Exemplo: Uma foto nova inserida pode valer 2x mais do que uma foto que já existia quando o estabelecimento foi comprado. Esse lucro porem, é acrescido de bônus somente uma vez.
+Uma feature desejada é a possibilidade de aumentar os lucros de uma determinada categoria ou localizaçao de estabelecimentos de acordo com eventos. Ex: No natal os shoppings devem das mais lucro, no verão locais próximos a praia dão mais lucro, etc.
+
+Tecnologia utilizada
+
+Apache 2 <http://httpd.apache.org/>
+Apache Module mod_rewrite <http://httpd.apache.org/docs/current/mod/mod_rewrite.html>
+PHP 5.3 <http://br.php.net/> com libcurl
+Framework Lithium <http://lithify.me/>
+Apontador API <http://api.apontador.com.br/>
+
+
+Instalação dos pacontes no Ubuntu (e provavelmente no Debian)
+
+sudo aptitude install apache2 php5 php5-curl 
+
+
+Setup do projeto
+
+Dentro do raiz do seu Apache, que geralmente é /var/www/, faça o pull do projeto.
+Entre na pasta monopolis e verifique se existe a pasta app/resources. Se não existir, crie-o.
+Dê acesso de escrita por qualquer usuário na pasta app/resourcespor qualquer usuário.
+Copie o arquivo app/config/config.exemplo.php para /app/config/config.php e adicione seu consumer key e consumer secret do Apontador Api <http://api.apontador.com.br/>.
+
+
+Links rápidos para cadastro e listagem de Aplicativos do Apontador Api
+
+http://www.apontador.com.br/accounts/app/create.html
+http://www.apontador.com.br/accounts/apps.html
+
+
+Sequencia de comandos para configurar o Projeto
+
+cd /var/www
+git clone git://github.com/EHER/monopolis.git 
+cd monopolis 
+mkdir app/resources
+chmod -R 0777 app/resources
+cp -fr app/config/config.exemplo.php app/config/config.php
+
+** Não esqueça de colocar key e secret no config.php **
+
+
+Setup do Apache
+
+Para habilitar o mod_rewrite execute o comando: sudo a2enmod rewrite
+Procure o arquivo de configurações do site padrão, no meu caso é /etc/apache2/sites-available/default.
+Verifique se AllowOverride está ALL. Por padrão ele vem None.
+Se ficar em dúvida compare o arquivo de exemplo abaixo.
+
+# Arquivo /etc/apache2/sites-available/default
+<VirtualHost *:80>
+        ServerAdmin alexandre@skd.com.br
+
+        DocumentRoot /var/www
+        <Directory />
+                Options FollowSymLinks
+                AllowOverride All 
+        </Directory>
+        <Directory /var/www/>
+                Options Indexes FollowSymLinks MultiViews
+                AllowOverride All 
+                Order allow,deny
+                allow from all
+        </Directory>
+</VirtualHost>

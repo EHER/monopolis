@@ -1,0 +1,26 @@
+TODO
+====
+Essa é a lista de coisas a fazer no projeto.
+Pode ser uma funcionalidade interessante, algo que deve ser corrigido ou alguma dívida técnica que não deve ser esquecida.
+
+PENDENTES
+=========
+
+	User
+	- Criar estrutura de user baseado em oauth do Apontador
+	- Extender estrutura de user para aceitar login com redes sociais 
+
+	Places
+	- Criar estrutura básica de places com campo valor
+
+	Status
+	- Criar estrutura de timeline
+
+	Rankink
+	- Criar exibição de ranking de places mais caros
+	- Criar exibição de ranking de usuários mais ricos 
+	- Criar exibição de ranking de usuários com maior patrimonio 
+
+FINALIZADAS
+===========
+
