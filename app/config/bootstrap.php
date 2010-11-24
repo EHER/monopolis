@@ -53,7 +53,7 @@ if (!include LITHIUM_LIBRARY_PATH . '/lithium/core/Libraries.php') {
 /**
  * Arquivo de configurações do projeto
  */
-if (!include LITHIUM_APP_PATH . '/app/config/config.php') {
+if (!include LITHIUM_APP_PATH . '/config/config.php') {
 	$message  = "Arquivo de configurção não encontrado.";
 	$message .= "Você pode criar esse arquivo renomeando o arquivo " . LITHIUM_APP_PATH . "/app/config/config.exemplo.php";
 	throw new ErrorException($message);
