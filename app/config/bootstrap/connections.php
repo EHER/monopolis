@@ -40,11 +40,11 @@ use lithium\data\Connections;
 /**
  * Uncomment this configuration to use MongoDB as your default database.
  */
-// Connections::add('default', array(
-// 	'type' => 'MongoDb',
-// 	'host' => 'localhost',
-// 	'database' => 'monopolis'
-// ));
+ Connections::add('default', array(
+ 	'type' => 'MongoDb',
+ 	'host' => DB_HOST,
+ 	'database' => DB_NAME
+ ));
 
 /**
  * Uncomment this configuration to use CouchDB as your default database.
@@ -59,13 +59,13 @@ use lithium\data\Connections;
 /**
  * Uncomment this configuration to use MySQL as your default database.
  */
- Connections::add('default', array(
- 	'type' => 'database',
- 	'adapter' => 'MySql',
- 	'host' => DB_HOST,
- 	'login' => DB_USER,
- 	'password' => DB_PASS,
- 	'database' => DB_NAME
- ));
+// Connections::add('default', array(
+// 	'type' => 'database',
+// 	'adapter' => 'MySql',
+// 	'host' => DB_HOST,
+// 	'login' => DB_USER,
+// 	'password' => DB_PASS,
+// 	'database' => DB_NAME
+// ));
 
 ?>
